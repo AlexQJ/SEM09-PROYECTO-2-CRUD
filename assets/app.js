@@ -3,8 +3,10 @@
 const AÑADIR = document.getElementById('añadir-tarea');
 const TAREA_INPUT = document.getElementById('tarea');
 let tareas = [];
+let hayTareas;
 
 const CONTENEDOR = document.getElementById('contenedor');
+
 
 
 
@@ -26,24 +28,51 @@ function añadirTarea(){
         renderLista();
     }
 }
-function renderLista(){
 
-    tareas = localStorage.getItem('lista-tareas').split(",");
+function renderInicial(){
+    if(localStorage.length > 0){
+        renderLista();
+        hayTareas = true;
+        console.log('Hay tareas en localStorage');
+        tareas = localStorage.getItem('lista-tareas').split(',');
+    }else{
+        hayTareas = false;
+        console.log('No hay tareas en localStorage');
+    }
+}
+
+
+function renderLista(){
+    if(localStorage.getItem('lista-tareas') != null){
+        tareas = localStorage.getItem('lista-tareas').split(",");
+    }
     CONTENEDOR.innerHTML = '';
     tareas.forEach((tarea, indice)=>{
         CONTENEDOR.innerHTML += `<li>
         <input type="checkbox" name="tarea-${indice}" id="tarea-${indice}">
         <label for="tarea-${indice}">${tarea}</label>
-        <button type="button" id="btn-eliminar-${indice}">🗑️</button>
+        <button type="button" id="btn-eliminar-${indice}" onClick="eliminarElemento(${indice})">🗑️</button>
         </li>
         `;
     });
 }
-
-
-if(localStorage.length > 0){
+function eliminarElemento(i){
+    tareas.splice(i, 1);
+    localStorage.setItem('lista-tareas', tareas);
+    comprobarTareasVacio();
     renderLista();
-    console.log('Hay tareas en localStorage');
-}else{
-    console.log('No hay tareas en localStorage');
 }
+
+
+function comprobarTareasVacio(){
+    if(localStorage.getItem('lista-tareas') == ''){
+        CONTENEDOR.innerHTML = '';
+        localStorage.clear();
+    }
+
+}
+
+
+
+
+
