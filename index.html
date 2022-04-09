@@ -10,16 +10,30 @@
     <title>To-Do List | Proyecto CRUD</title>
 </head>
 <body onload="renderInicial()">
-    <form>
-        <input type="text" id="tarea" placeholder="Ingresa una tarea">
-        <br>
-        <button type="button" id="añadir-tarea">Añadir tarea</button>
-    </form>
-    <div>
-        <ul id="contenedor" class="contenedor">
-        
-        </ul>
-    </div>
+
+    <section class="contenedor-principal">
+        <header>
+            <nav class="navegacion">
+                <ul>
+                    <li><a href="#">Portafolio</a></li>
+                    <li><a href="#">Redes sociales</a></li>
+                    <li><a href="#">Ucamp</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <form>
+                <h1>To Do List</h1>
+                <input type="text" id="tarea" placeholder="Ingresa una tarea">
+                <button type="button" class="btn btn-añadir" id="añadir-tarea">Añadir tarea<i class="fa-solid fa-plus"></i></button>
+            </form>
+            <div>
+                <ul id="contenedor" class="contenedor-lista">
+                
+                </ul>
+            </div>
+        </main>   
+    </section>
     
     <script src="./assets/app.js"></script>
 </body>
