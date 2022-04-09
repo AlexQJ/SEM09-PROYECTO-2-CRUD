@@ -48,13 +48,18 @@ function renderLista(){
     }
     CONTENEDOR.innerHTML = '';
     tareas.forEach((tarea, indice)=>{
-        CONTENEDOR.innerHTML += `<li>
+        CONTENEDOR.innerHTML += `<li class="list-item">
         <input type="checkbox" name="tarea-${indice}" id="tarea-${indice}">
         <label for="tarea-${indice}">${tarea}</label>
-        <button type="button" id="btn-eliminar-${indice}" onClick="eliminarElemento(${indice})">🗑️</button>
+        <button type="button" class="btn btn-tarea" id="btn-editar-${indice}" onClick="editarElemento(${indice})">✏️</button>
+        <button type="button" class="btn btn-tarea" id="btn-eliminar-${indice}" onClick="eliminarElemento(${indice})">🗑️</button>
         </li>
         `;
     });
+
+    CONTENEDOR.innerHTML += `
+        <button type="button" class="btn btn-eliminar-todo" id="btn-eliminar-todo">🗑️ Eliminar todo</button>
+    `;
 }
 function eliminarElemento(i){
     tareas.splice(i, 1);
@@ -65,14 +70,22 @@ function eliminarElemento(i){
 
 
 function comprobarTareasVacio(){
-    if(localStorage.getItem('lista-tareas') == ''){
+    if(localStorage.getItem('lista-tareas') == '' || tareas == [] || tareas.length == 0){
         CONTENEDOR.innerHTML = '';
         localStorage.clear();
+        location.reload();
     }
 
 }
 
-
+function editarElemento(i){
+    tareas.splice(i, 1);
+    tareas[i] = prompt('Editar elemento', tareas[i]);
+    localStorage.setItem('lista-tareas', tareas);
+    comprobarTareasVacio();
+    renderLista();
+    console.log('tarea editada: ' + tareas[i]);
+}
 
 
 
