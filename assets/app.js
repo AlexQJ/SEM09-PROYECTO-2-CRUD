@@ -49,10 +49,14 @@ function renderLista(){
     CONTENEDOR.innerHTML = '';
     tareas.forEach((tarea, indice)=>{
         CONTENEDOR.innerHTML += `<li class="list-item">
-        <input type="checkbox" name="tarea-${indice}" id="tarea-${indice}">
-        <label for="tarea-${indice}">${tarea}</label>
-        <button type="button" class="btn btn-tarea" id="btn-editar-${indice}" onClick="editarElemento(${indice})"><i class="fa-solid fa-pen-to-square"></i></button>
-        <button type="button" class="btn btn-tarea" id="btn-eliminar-${indice}" onClick="eliminarElemento(${indice})"><i class="fa-solid fa-trash"></i></button>
+        <div class="tarea">
+            <input type="checkbox" name="tarea-${indice}" id="tarea-${indice}">
+            <label for="tarea-${indice}">${tarea}</label>
+        </div>
+        <div class="btns-tarea">
+            <button type="button" class="btn btn-tarea" id="btn-editar-${indice}" onClick="editarElemento(${indice})"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button type="button" class="btn btn-tarea eliminar" id="btn-eliminar-${indice}" onClick="eliminarElemento(${indice})"><i class="fa-solid fa-trash"></i></button>
+        </div>
         </li>
         `;
     });

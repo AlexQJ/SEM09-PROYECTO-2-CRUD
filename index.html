@@ -11,29 +11,38 @@
 </head>
 <body onload="renderInicial()">
 
-    <section class="contenedor-principal">
-        <header>
-            <nav class="navegacion">
-                <ul>
-                    <li><a href="#">Portafolio</a></li>
-                    <li><a href="#">Redes sociales</a></li>
-                    <li><a href="#">Ucamp</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <form>
-                <h1>To Do List</h1>
-                <input type="text" id="tarea" placeholder="Ingresa una tarea">
-                <button type="button" class="btn btn-añadir" id="añadir-tarea">Añadir tarea<i class="fa-solid fa-plus"></i></button>
-            </form>
-            <div>
-                <ul id="contenedor" class="contenedor-lista">
-                
-                </ul>
-            </div>
-        </main>   
-    </section>
+    <header>
+        <nav class="navegacion">
+            <div class="logo"><img src="./assets/media/img/logo_ucamp.webp" alt="Ucamp"></div>
+            <ul>
+                <li><a target="_blank" href="https://github.com/AlexQJ">Portafolio</a></li>
+                <li><a href="#">Redes</a></li>
+                <li><a target="_blank" href="https://u-camp.utel.edu.mx/mexico">Ucamp</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contenedor-principal">
+                <form>
+                    <div class="texto">
+                        <h1>To Do List</h1>
+                    </div>
+                    <div class="texto btns">
+                        <input type="text" class="form-control form-control-lg input-tarea" id="tarea" placeholder="Ingresa una tarea">
+                        <button type="button" class="btn btn-primary btn-lg btn-block btn-añadir" id="añadir-tarea">Añadir tarea<i class="fa-solid fa-plus"></i></button>
+                    </div>
+                </form>
+                <div class="contenedor-tareas">
+                    <ul id="contenedor" class="contenedor-lista">
+                    
+                    </ul>
+                </div>  
+        </section>
+    </main>
+
+    <footer>
+        <p>Aplicacion web de practica creado por <a target="_blank" href="https://github.com/AlexQJ">Alejandro Quiñónez &copy;</a></p>
+    </footer>
     
     <script src="./assets/app.js"></script>
 </body>
