@@ -85,8 +85,8 @@ form .texto .btns{
 form .btn-añadir {
     width: 100%;
     margin: 10px 0;
-    background: hsl(176, 92%, 30%);
-    border: 2px solid #09d6c7;
+    background: #069389;
+    border: 2px solid #069389;
     color: #fff;
 }
 
@@ -103,6 +103,11 @@ form .btn-añadir:hover{
 form .btn-añadir:active{
     background-color:#0ab3a7;
     border-color: #0ab3a7;
+}
+
+form .btn-añadir:focus{
+    background-color:#009c92;
+    border-color: #009c92;
 }
 
 .btn-añadir i {
